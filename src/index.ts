@@ -6,7 +6,7 @@
       displayName: "Break",
       auth: PieceAuth.None(),
       minimumSupportedRelease: '0.20.0',
-      logoUrl: "https://cdn.activepieces.com/pieces/break.png",
+      logoUrl: "https://raw.githubusercontent.com/devrelcz/piece-break/master/src/images/logo-break.png",
       authors: [
         '@devrelcz'
       ],
