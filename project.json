@@ -1,0 +1,43 @@
+{
+  "name": "pieces-break",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/pieces/community/break/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/packages/pieces/community/break",
+        "tsConfig": "packages/pieces/community/break/tsconfig.lib.json",
+        "packageJson": "packages/pieces/community/break/package.json",
+        "main": "packages/pieces/community/break/src/index.ts",
+        "assets": [
+          "packages/pieces/community/break/*.md"
+        ],
+        "buildableProjectDepsInPackageJsonType": "dependencies",
+        "updateBuildableProjectDepsInPackageJson": true
+      }
+    },
+    "publish": {
+      "command": "node tools/scripts/publish.mjs pieces-break {args.ver} {args.tag}",
+      "dependsOn": [
+        "build"
+      ]
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "packages/pieces/community/break/**/*.ts"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
